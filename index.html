@@ -1,0 +1,218 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8115059612402104"
+     crossorigin="anonymous"></script>
+    <div >
+        <textarea id="area" name="S1" spellcheck="true" autofocus="" class="notes" style="font-size: 14px; font-family: Arial; font-weight: normal;"></textarea>
+    </div>
+</body>
+</html> -->
+
+<html>
+
+<head>
+     <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8115059612402104"
+    crossorigin="anonymous"></script> -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+        }
+
+        .main {
+            background-color: #fff;
+            height: 100%;
+            padding: 20px;
+        }
+
+        .main-container {
+            border: 1px solid #246ded;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+        }
+
+        .header {
+            background-color: #246ded;
+            height: 7%;
+            width: 100%;
+            padding: 5px 0px;
+        }
+
+        .content {
+            background-color: #fff;
+            height: 84%;
+            width: 100%;
+            border-bottom: 1px #141414 dotted;
+        }
+
+        .options {
+            height: 7%;
+            width: 100%;
+            padding: 5px;
+        }
+
+        ::placeholder {
+            color: #fff;
+        }
+
+        .txtHeader {
+            font-size: 25px;
+            height: 100%;
+            background-color: transparent;
+            color: #fff;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            border: none;
+            text-align: center;
+            margin: auto;
+            display: block;
+        }
+
+        .txtHeader:focus,
+        .txtHeader:hover {
+            border: none;
+            background-color: #fff;
+            color: #246ded;
+            outline: none;
+        }
+
+        .txtContent {
+            height: 100%;
+            width: 100%;
+            color: #141414;
+            background-color: #fff;
+            word-wrap: break-word;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            overflow-y: scroll;
+        }
+
+        .txtContent:focus,
+        .txtContent:hover {
+            border: none !important;
+            background-color: #f7f7f7;
+        }
+
+        .btn {
+            padding: 5px;
+            margin: 2px;
+            background-color: #246ded;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .btn:focus,
+        .btn:hover {
+
+            background-color: #fff;
+            color: #246ded;
+            border: 1px #246ded solid;
+        }
+    </style>
+</head>
+
+<body>
+   
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8115059612402104"
+    crossorigin="anonymous"></script>
+
+<ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-8115059612402104"
+    data-ad-slot="8323474854"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script> -->
+    <div class="main">
+        <div class="main-container">
+
+            <div class="header">
+                <input type="text" class="txtHeader" id="txtHeader" placeholder="Enter title here" />
+                &nbsp;
+            </div>
+
+            <div class="content">
+                <textarea class="txtContent" id="txtContent" spellcheck="false" style="resize: none;"></textarea>
+            </div>
+
+            <div class="options">
+                <div>
+                    <button onclick="downloadFile()" class="btn btn-download">DOWNLOAD</button>
+                    <button onclick="changeStyle('b')" class="btn1"><b>B</b></button>
+                    <button onclick="changeStyle('i')" class="btn1"><i>i</i></button>
+                    <button onclick="changeStyle('u')" class="btn1">u</button>
+                    <button onclick="changeStyle('n')" class="btn1">n</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</body>
+<script>
+    var fileName = document.getElementById("txtHeader");
+    var fileContent = document.getElementById("txtContent");
+
+    fileName.value = "";
+    fileContent.value = "";
+    function downloadFile() {
+        if (fileName.value === "" || fileContent.value === "")
+            window.alert("Please enter File name and content");
+        else {
+            var e = fileContent.value;
+            var c = document.createElement("a");
+            c.download = fileName.value + ".txt";
+            var t = new Blob([e], {
+                type: "text/plain"
+            });
+            c.href = window.URL.createObjectURL(t);
+            c.click();
+        }
+    }
+
+    function changeStyle(propertyName) {
+        switch (propertyName) {
+            case "b":
+                if (fileContent.style.fontWeight === "bold")
+                    fileContent.style.fontWeight = "normal";
+                else
+                    fileContent.style.fontWeight = "bold";
+                break;
+            case "i":
+                if (fileContent.style.fontStyle === "italic")
+                    fileContent.style.fontStyle = "normal";
+                else
+                    fileContent.style.fontStyle = "italic";
+                break;
+            case "n":
+                fileContent.style.fontWeight = "normal";
+                fileContent.style.fontStyle = "normal";
+                fileContent.style.textDecoration = "none";
+                break;
+            case "u":
+                if (fileContent.style.textDecoration === "underline")
+                    fileContent.style.textDecoration = "none";
+                else
+                    fileContent.style.textDecoration = "underline"
+                break;
+
+        }
+    }
+</script>
+
+</html>
